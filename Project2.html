@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>Project2-Koushik</title>	
+      <script language="javascript" type="text/javascript">		
+		function controlSpeed()
+		{		
+			var sliderObject =document.getElementById('points');
+			sliderObject.onkeydown= function(e){				
+				var keyCode = e.keyCode;
+				if(keyCode ==38 || keyCode == 40 || keyCode == 37 || keyCode ==39){					
+					e.preventDefault();
+					return false;
+				}
+			}
+			var val = sliderObject.value;
+			up(val);
+		}
+		
+		window.onload = controlSpeed;		
+	</script>
+  </head>
+
+  <body onload="main();controlSpeed();" ;>
+  
+    
+	<div >
+	<canvas id="webgl" width="800" height="700";>
+    </canvas>
+    </div>
+      <form>
+		<input type="range" id="points" name="points" min="1" max="20" onchange="controlSpeed()">
+    </form>
+	<div >
+	<b>Controls:</b>
+	<ol>
+        <li>Slide bar is added to control animation speed.</li>   
+        <li>Use arrow keys to move Camera directions.</li>
+        <li>"I" is used to ZoomIn and "O" is used to ZoomOut.</li>
+        <li>"End" is used to stop the camera.</li>
+        <li>Mouse Left Click can be used to move the objects.</li>
+        
+    </ol> 
+		
+	</div>
+	
+    <script src="lib/webgl-utils.js"></script>
+    <script src="lib/webgl-debug.js"></script>
+    <script src="lib/cuon-utils.js"></script>
+    <script src="lib/cuon-matrix.js"></script>
+    <script src="lib/Project2.js"></script>
+	
+  </body>
+</html>
